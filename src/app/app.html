@@ -1,12 +1,8 @@
 <app-container>
   <app-cabecalho></app-cabecalho>
-  <app-separador>
-    A
-  </app-separador>
-  <app-separador>
-    B
-  </app-separador>
+  @for(letra of alfabeto; track letra){ <!-- faz um loop passando por todas as letras encontradas na string alfabeto -->
     <app-separador>
-    C
-  </app-separador>
+      {{letra}}
+    </app-separador>
+  }
 </app-container>

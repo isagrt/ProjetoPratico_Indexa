@@ -17,5 +17,8 @@ import { Separador } from './components/separador/separador';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('indexa');
+  /*protected readonly title = signal('indexa');*/
+  alfabeto: string ='abcdefghijklmnopqrstuvwxyz';
+
+  
 }
