@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Container } from './components/container/container';
 import { Cabecalho } from './components/cabecalho/cabecalho';
 import { Separador } from './components/separador/separador';
+import { Contato } from './components/contato/contato';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { Separador } from './components/separador/separador';
     RouterOutlet,
     Container,
     Cabecalho,
-    Separador
+    Separador,
+    Contato
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -20,5 +22,5 @@ export class App {
   /*protected readonly title = signal('indexa');*/
   alfabeto: string ='abcdefghijklmnopqrstuvwxyz';
 
-  
+
 }
