@@ -35,7 +35,7 @@ export class App {
 
   /*Filtrar os contatos por letra no app.ts*/
   filtrarContatosPorLetraInicial(letra:string): IContato[]{
-    return this.contatos.filter( contato => {
+    return this.filtraContatosPorTexto().filter( contato => {
       return contato.nome.toLowerCase().startsWith(letra)
     })
   }
@@ -44,7 +44,7 @@ export class App {
     if (!this.filtroPorTexto){
       return this.contatos
     }
-
+    
     return this.contatos.filter(contato => {
       return contato.nome.toLowerCase().includes(this.filtroPorTexto.toLocaleLowerCase())
     })
