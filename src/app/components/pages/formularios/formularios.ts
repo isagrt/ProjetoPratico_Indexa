@@ -23,10 +23,18 @@ export class Formularios {
       nome: new FormControl('Isadora'),
       telefone: new FormControl('99 9999-9999'),
       email: new FormControl('fulano@gmail.com'),
-      aniversario: new FormControl('04/10/2005'),
-      redes: new FormControl(''),
-      observacoes: new FormControl(''),
+      aniversario: new FormControl('2005-10-04'),
+      redes: new FormControl('@isadora'),
+      observacoes: new FormControl('Amiga querida <3'),
     });
   }
 
+
+  salvarContato(){
+    console.log(this.contatoForm.value);
+  }
+
+  cancelar(){
+    console.log('Submissão cancelada!');
+  }
 }
