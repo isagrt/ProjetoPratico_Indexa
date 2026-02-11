@@ -13,6 +13,7 @@ interface IContato{
 
 import agenda from './agenda.json';
 import { FormsModule } from '@angular/forms';
+import { Formularios } from './components/pages/formularios/formularios';
 @Component({
   selector: 'app-root',
   imports: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     Cabecalho,
     Separador,
     Contato,
-    FormsModule
+    FormsModule,
+    Formularios
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
