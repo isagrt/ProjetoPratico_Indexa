@@ -15,6 +15,7 @@ interface IContato{
 }
 
 import agenda from '../../../agenda.json';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-contatos',
@@ -25,7 +26,8 @@ import agenda from '../../../agenda.json';
     Separador,
     Contato,
     FormsModule,
-    Formularios
+    Formularios,
+    RouterLink
   ],
   templateUrl: './lista-contatos.html',
   styleUrl: './lista-contatos.css',

@@ -6,7 +6,7 @@ header .cabecalho-link {
 
 header .cabecalho-link img {
   align-self: center;
-  margin-bottom: 56px;
+  margin-bottom: 30px;
 }
 
 header .cabecalho-link div {
@@ -167,4 +167,32 @@ input:focus {
   color: red;
   margin-bottom: 12px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.voltar {
+  display: flex;
+  justify-content: left;
+}
+
+.voltar button {
+  width: 70px;
+  height: 20px;
+  padding: 0;
+  border: 1px;
+  color: #0D6EFD;
+  background-color: transparent;
+  font-family: 'Montserrat';
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.voltar img {
+  width: 20px;
+  height: 20px;
+  padding-right: 8px;
 }
