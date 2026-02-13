@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Formularios } from './components/pages/formularios/formularios';
 import { ListaContatos } from './components/pages/lista-contatos/lista-contatos';
+import { Login } from './components/pages/login/login';
 
 export const routes: Routes = [
 
@@ -13,8 +14,12 @@ export const routes: Routes = [
     component: ListaContatos
   },
   {
+    path: 'login',
+    component: Login
+  },
+  {
     path: '',
-    redirectTo: '/lista',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 
