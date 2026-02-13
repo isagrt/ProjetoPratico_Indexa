@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
+import { Container } from '../../container/container';
+import { Separador } from '../../separador/separador';
 
 @Component({
   selector: 'app-perfil-contato',
-  imports: [],
+  imports: [
+    Container,
+    Separador
+  ],
   templateUrl: './perfil-contato.html',
   styleUrl: './perfil-contato.css',
 })
