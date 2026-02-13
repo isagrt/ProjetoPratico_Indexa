@@ -1,4 +1,5 @@
 <app-container>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <header>
     <section class="cabecalho-link">
       <img src="assets/logo.png" alt="Logo" />
@@ -12,22 +13,29 @@
 
   <app-separador></app-separador>
   <section class="container">
-    <div class="area">
+    <form [formGroup]="loginForm" (ngSubmit)="fazerLogin()">
+      <div class="area">
       <label for="email">Email</label>
       <div class="campo">
-        <span>
+        <span class="icone-input">
           <img src="assets/arroba.png" alt="@" />
         </span>
-        <input type="email" placeholder="Email" />
+        <input style="border-right: 1px solid #CED4DA; border-top-right-radius: 5px; border-bottom-right-radius: 5px;" type="email" placeholder="Email" />
       </div>
     </div>
     <div class="area">
       <label for="senha">Senha</label>
       <div class="campo">
-        <span>
+        <span class="icone-input">
           <img src="assets/lock.png" alt="lock" />
         </span>
         <input type="password" placeholder="Senha" />
+        <span class="icone-olho" (click)="mostrarSenha = !mostrarSenha">
+      <img
+        [src]="mostrarSenha ? 'assets/visibilidadeOff.png' : 'assets/visibilidadeOn.png'"
+        alt="mostrar senha"
+      />
+    </span>
       </div>
     </div>
 
@@ -36,9 +44,13 @@
       <span class="checkmark"></span>
       Lembrar-me
     </label>
-    <button class="botao-entrar" routerLink="/lista">Entrar</button>
+
+    <button
+    class="botao-entrar" >Entrar</button>
     <button class="botao-esqueci">Esqueci a minha senha</button>
   </section>
+    </form>
+
 
 </app-container>
 <!-- -->

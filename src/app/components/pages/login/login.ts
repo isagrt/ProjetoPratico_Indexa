@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Container } from '../../container/container';
 import { Separador } from '../../separador/separador';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 
@@ -11,20 +11,39 @@ import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angula
     Container,
     Separador,
     RouterLink,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
     ],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
 
-    contatoForm: FormGroup;
+loginForm: FormGroup;
+erroLogin = false;
 
-  /* Metodo construtor */
-  constructor(){
-    this.contatoForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      senha: new FormControl(''),
-    });
+constructor(private router: Router) {
+
+  this.loginForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    senha: new FormControl('', Validators.required)
+  });
+
+}
+
+fazerLogin() {
+
+  const { email, senha } = this.loginForm.value;
+
+  if (email === 'admin' && senha === 'admin') {
+    this.erroLogin = false;
+    this.router.navigate(['/lista']);
+  } else {
+    this.erroLogin = true;
   }
+
+}
+
+    mostrarSenha = false;
+
 }

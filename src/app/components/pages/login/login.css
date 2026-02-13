@@ -62,7 +62,7 @@ h1 {
 input,
 textarea {
   box-sizing: border-box;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0;
   border: 1px solid #CED4DA;
   width: 100%;
   margin: 8px 0 12px 0;
@@ -73,6 +73,7 @@ textarea {
   font-weight: 400;
   line-height: 150%;
   border-left: none;
+  border-right: none;
   background-color: #F5F8FD;
 }
 
@@ -117,10 +118,28 @@ label {
   align-items: stretch;
 }
 
+.icone-olho {
+  width: 40px;
+  height: 39px;
+  border: 1px solid #CED4DA;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background-color: #F5F8FD;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 8px 0 ;
+}
+
+.icone-olho img {
+  height: 20px;
+}
+
 .area{
   margin: 5px 0;
 }
-span {
+.icone-input {
   width: 30px;
   height: 39px;
   border-radius: 4px 0 0 4px;
@@ -138,7 +157,7 @@ span {
   padding-left: 3px;
 }
 
-span img {
+.icone-input img {
   height: 22px;
 }
 
@@ -156,7 +175,7 @@ span img {
 }
 
 .checkmark {
-  width: 12px;
+  width: 15px;
   height: 15px;
   border: 2px solid #9aa4b2;
   border-radius: 4px;
