@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import { Container } from '../../container/container';
 import { Separador } from '../../separador/separador';
-import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import agenda from '../../../agenda.json';
 
 interface IContato {
-  id: number;
-  nome: string;
-  telefone: string;
+  id:number
+  nome: string
+  telefone: string
+  email: string,
+  dataNascimento: string,
+  redesSociais:{
+    linkedin: string,
+    instagram: string
+  }
 }
 
 @Component({
@@ -21,6 +27,7 @@ interface IContato {
     ReactiveFormsModule,
     CommonModule,
     RouterModule,
+    FormsModule
   ],
   templateUrl: './perfil-contato.html',
   styleUrl: './perfil-contato.css',
@@ -29,15 +36,35 @@ interface IContato {
 
 export class PerfilContato {
 
-  mostrarSenha = false;
+ contato!: IContato;
+  contatoBackup!: IContato;
 
-   contato!: IContato;
+  modoEdicao = false;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-
     this.contato = agenda.find(c => c.id === id)!;
   }
+
+  editarContato() {
+    this.contatoBackup = JSON.parse(JSON.stringify(this.contato));
+    this.modoEdicao = true;
+  }
+
+  salvarContato() {
+    this.modoEdicao = false;
+    console.log('Contato atualizado:', this.contato);
+  }
+
+  cancelarEdicao() {
+    this.contato = JSON.parse(JSON.stringify(this.contatoBackup));
+    this.modoEdicao = false;
+  }
+  excluirContato(){
+    console.log('Contato excluído',this.contato)
+  }
+
 }
+

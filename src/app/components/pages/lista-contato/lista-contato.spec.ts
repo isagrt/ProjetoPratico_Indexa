@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListaContatos } from './lista-contatos';
+import { ListaContato } from './lista-contato';
 
-describe('ListaContatos', () => {
-  let component: ListaContatos;
-  let fixture: ComponentFixture<ListaContatos>;
+describe('ListaContato', () => {
+  let component: ListaContato;
+  let fixture: ComponentFixture<ListaContato>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListaContatos]
+      imports: [ListaContato]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ListaContatos);
+    fixture = TestBed.createComponent(ListaContato);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
@@ -21,3 +21,4 @@ describe('ListaContatos', () => {
     expect(component).toBeTruthy();
   });
 });
+

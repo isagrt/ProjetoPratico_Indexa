@@ -10,3 +10,4 @@ export class Contato {
   @Input() nome: string = "";
   @Input() telefone: string ="";
 }
+ 

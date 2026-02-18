@@ -1,39 +1,43 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Container } from '../../container/container';
 import { Cabecalho } from '../../cabecalho/cabecalho';
-import { CommonModule } from '@angular/common';
-import { FormsModule, NgModel } from '@angular/forms';
 import { Separador } from '../../separador/separador';
 import { Contato } from '../../contato/contato';
+import { FormsModule } from '@angular/forms';
 import { Formularios } from '../formularios/formularios';
 
-
 interface IContato{
-  id: number
+  id:number
   nome: string
   telefone: string
+  email: string,
+  dataNascimento: string,
+  redesSociais:{
+    linkedin: string,
+    instagram: string
+  }
 }
 
 import agenda from '../../../agenda.json';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-lista-contatos',
+  selector: 'app-lista-contato',
   imports: [
+    CommonModule,
     Container,
     Cabecalho,
-    CommonModule,
     Separador,
     Contato,
     FormsModule,
     Formularios,
     RouterLink
   ],
-  templateUrl: './lista-contatos.html',
-  styleUrl: './lista-contatos.css',
+  templateUrl: './lista-contato.html',
+  styleUrl: './lista-contato.css',
 })
-export class ListaContatos {
-  /*protected readonly title = signal('indexa');*/
+export class ListaContato {
   alfabeto: string ='abcdefghijklmnopqrstuvwxyz';
 
   contatos: IContato[] = agenda;

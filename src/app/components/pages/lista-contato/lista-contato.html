@@ -1,0 +1,23 @@
+<app-container>
+  <app-cabecalho></app-cabecalho>
+
+  <input type="search" [(ngModel)]="filtroPorTexto" placeholder="Digite para buscar contato">
+
+    <section class="adicionar-contato">
+    <button routerLink="/formulario">
+      <img src="assets/plus.png" alt="">
+      <span>Adicionar Contato</span>
+    </button>
+
+
+  </section>
+  @for(letra of alfabeto; track letra){ <!-- faz um loop passando por todas as letras encontradas na string alfabeto -->
+    <app-separador>
+      {{letra}}
+    </app-separador>
+    @for(contato of filtrarPorTextoEPorLetra(letra); track contato.id){
+      <app-contato [nome]="contato.nome" [telefone]="contato.telefone" [routerLink]="['/perfil', contato.id]"></app-contato>
+    }
+
+  }
+</app-container>

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { Formularios } from './components/pages/formularios/formularios';
-import { ListaContatos } from './components/pages/lista-contatos/lista-contatos';
+import { ListaContato } from './components/pages/lista-contato/lista-contato';
 import { Login } from './components/pages/login/login';
 import { PerfilContato } from './components/pages/perfil-contato/perfil-contato';
 
@@ -12,21 +12,22 @@ export const routes: Routes = [
   },
   {
     path: 'lista',
-    component: ListaContatos
+    component: ListaContato
   },
   {
     path: 'login',
     component: Login
   },
   {
-    path: 'perfil',
+    path: 'perfil/:id',
     component: PerfilContato
   },
   {
     path: '',
-    redirectTo: '/lista',
+    redirectTo: '/login',
     pathMatch: 'full'
-  }
+  },
+
 
 
 
