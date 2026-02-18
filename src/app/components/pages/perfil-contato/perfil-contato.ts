@@ -13,6 +13,7 @@ interface IContato {
   telefone: string
   email: string,
   dataNascimento: string,
+  foto: string,
   redesSociais:{
     linkedin: string,
     instagram: string

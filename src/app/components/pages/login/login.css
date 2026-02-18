@@ -117,7 +117,11 @@ label {
   display: flex;
   align-items: stretch;
 }
-
+.campo .email-input{
+  border-right: 1px solid #CED4DA;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 .icone-olho {
   width: 40px;
   height: 39px;

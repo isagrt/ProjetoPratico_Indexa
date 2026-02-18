@@ -4,6 +4,13 @@
       <img src="assets/logo.png" alt="logo" />
     </section>
 
+    <section class="voltar">
+      <button routerLink="/lista">
+        <img src="assets/arrow-left.png" alt="add" />
+        <span>Voltar</span>
+      </button>
+    </section>
+
     <section class="cabecalho-contato">
       <img src="assets/perfil-contato.png" alt="adicionar-contato" />
     </section>
@@ -15,7 +22,7 @@
 
   <form class="formulario">
     <div class="card-usuario">
-      <img class="imagem-contato" [src]="'https://ui-avatars.com/api/?name=' + contato?.nome" />
+      <img class="imagem-contato" [src]="contato?.foto || 'https://ui-avatars.com/api/?name=' + contato?.nome" />
 
       <div class="info-usuario">
         <span class="nome-usuario">{{ contato?.nome }}</span>
