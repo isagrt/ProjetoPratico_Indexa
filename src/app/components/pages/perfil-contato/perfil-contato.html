@@ -1,22 +1,77 @@
-<app-container>
-  <header>
-    <section class="cabecalho-link">
-      <img src="assets/logo.png" alt="Logo" />
-    </section>
-    <section class="voltar"></section>
-    <section class="cabecalho-contato">
-      <img src="assets/perfil-contato.png" alt="Contato" />
-    </section>
-    <h1>Perfil do Contato</h1>
-  </header>
 
-  <app-separador></app-separador>
-  <section class="container">
-    <section class="foto-nome">
-      <div class="perfil-foto">
-        <img src="assets/perfil.jpg" alt="imgPerfil" />
-      </div>
-      <h1 id="nome">Nome</h1>
-    </section>
-  </section>
+<app-container>
+    <header>
+        <section class="cabecalho-link">
+            <img src="assets/logo.png" alt="logo">
+        </section>
+
+        <section class="cabecalho-contato">
+            <img src="assets/perfil-contato.png" alt="adicionar-contato">
+        </section>
+
+        <h1>Perfil do Contato</h1>
+    </header>
+
+    <app-separador></app-separador>
+
+    <form class="formulario">
+
+        <div class="card-usuario">
+            <img class="imagem-contato" src="/assets/perfil.jpg" alt="">
+
+            <div class="info-usuario">
+                <span class="nome-usuario">{{ contato?.nome }}</span>
+            </div>
+        </div>
+
+        <app-separador></app-separador>
+
+        <div class="info-container">
+
+            <div class="info-item">
+                <span class="material-icons">phone</span>
+                <div>
+                    <strong>Número</strong>
+                    <p>{{ contato?.telefone }}</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="material-icons">email</span>
+                <div>
+                    <strong>Email</strong>
+                    <p>gatinho@gmail.com.br</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="material-icons">calendar_today</span>
+                <div>
+                    <strong>Data de nascimento</strong>
+                    <p>23/10/1998</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <span class="material-icons">public</span>
+                <div>
+                    <strong>Redes sociais</strong>
+                    <p>linkedin.com/gatinho</p>
+                    <p>instagram.com/gatinho</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="botoes-container">
+            <button type="button" class="botao-excluir">
+                Excluir contato
+            </button>
+
+            <button type="button" class="botao-editar">
+                Editar
+            </button>
+        </div>
+
+    </form>
 </app-container>
