@@ -1,5 +1,5 @@
 <app-container>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <header>
     <section class="cabecalho-link">
       <img src="assets/logo.png" alt="Logo" />
@@ -14,55 +14,49 @@
   <app-separador></app-separador>
   <section class="container">
     <form [formGroup]="loginForm" (ngSubmit)="fazerLogin()">
+      <div class="area">
+        <label>Email</label>
+        <div class="campo">
+          <span class="icone-input">
+            <img src="assets/arroba.png" />
+          </span>
+          <input class="email-input" type="text" placeholder="Email" formControlName="email" />
+        </div>
+      </div>
+      <!--@if(loginForm.get('email')?.errors?.['requierd'] && loginForm.get('email')?.touched){
+        <div class="mensagem-erro">
+          Formato de email errado
+        </div>
+      }-->
+      <div class="area">
+        <label>Senha</label>
+        <div class="campo">
+          <span class="icone-input">
+            <img src="assets/lock.png" />
+          </span>
 
-  <div class="area">
-    <label>Email</label>
-    <div class="campo">
-      <span class="icone-input">
-        <img src="assets/arroba.png" />
-      </span>
-      <input class="email-input"
-        type="text"
-        placeholder="Email"
-        formControlName="email"
-      />
-    </div>
-  </div>
+          <input
+            [type]="mostrarSenha ? 'text' : 'password'"
+            placeholder="Senha"
+            formControlName="senha"
+          />
 
-  <div class="area">
-    <label>Senha</label>
-    <div class="campo">
-      <span class="icone-input">
-        <img src="assets/lock.png" />
-      </span>
-
-      <input
-        [type]="mostrarSenha ? 'text' : 'password'"
-        placeholder="Senha"
-        formControlName="senha"
-      />
-
-      <span class="icone-olho" (click)="mostrarSenha = !mostrarSenha">
-        <img
-          [src]="mostrarSenha ? 'assets/visibilidadeOff.png' : 'assets/visibilidadeOn.png'"
-        />
-      </span>
-    </div>
-  </div>
-
-  <button type="submit" class="botao-entrar">
-    Entrar
-  </button>
-  <button class="botao-esqueci">Esqueci a minha senha</button>
-  <p *ngIf="erroLogin" style="color:red">
-    Email ou senha inválidos
-  </p>
-
-</form>
-
-
+          <span class="icone-olho" (click)="mostrarSenha = !mostrarSenha">
+            <img
+              [src]="mostrarSenha ? 'assets/visibilidadeOff.png' : 'assets/visibilidadeOn.png'"
+            />
+          </span>
+        </div>
+      </div>
+      <label class="checkbox-container">
+        <input type="checkbox" />
+        <span class="checkmark"></span>
+        Lembrar-me
+      </label>
+      <button type="submit" class="botao-entrar">Entrar</button>
+      <button class="botao-esqueci">Esqueci a minha senha</button>
+      <p *ngIf="erroLogin" style="color: red">Email ou senha inválidos</p>
+    </form>
   </section>
-
-
 </app-container>
 <!-- -->

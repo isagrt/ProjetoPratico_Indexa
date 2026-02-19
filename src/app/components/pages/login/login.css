@@ -21,7 +21,7 @@ header .cabecalho-link a {
   font-weight: 400;
   line-height: 27px;
   letter-spacing: 0px;
-  color: #0D6EFD;
+  color: #0d6efd;
 }
 
 header .cabecalho-contato {
@@ -38,7 +38,7 @@ h1 {
   line-height: 39px;
   letter-spacing: 0px;
   text-align: center;
-  color: #4568CD;
+  color: #4568cd;
   margin: 12px 0;
 }
 
@@ -63,7 +63,7 @@ input,
 textarea {
   box-sizing: border-box;
   border-radius: 0;
-  border: 1px solid #CED4DA;
+  border: 1px solid #ced4da;
   width: 100%;
   margin: 8px 0 12px 0;
   padding: 6px 12px;
@@ -74,7 +74,7 @@ textarea {
   line-height: 150%;
   border-left: none;
   border-right: none;
-  background-color: #F5F8FD;
+  background-color: #f5f8fd;
 }
 
 input:focus {
@@ -90,10 +90,9 @@ label {
   text-align: left;
 }
 
-
 .botao-entrar {
-  color: #FFFFFF;
-  background-color: #0D6EFD;
+  color: #ffffff;
+  background-color: #0d6efd;
   cursor: pointer;
   width: 100%;
   height: 41px;
@@ -109,46 +108,46 @@ label {
 }
 
 .botao-desabilitado {
-  background-color: #ADB5BD;
+  background-color: #adb5bd;
   cursor: not-allowed;
 }
 
-.campo{
+.campo {
   display: flex;
   align-items: stretch;
 }
-.campo .email-input{
-  border-right: 1px solid #CED4DA;
+.campo .email-input {
+  border-right: 1px solid #ced4da;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 .icone-olho {
   width: 40px;
   height: 39px;
-  border: 1px solid #CED4DA;
+  border: 1px solid #ced4da;
   border-left: none;
   border-radius: 0 4px 4px 0;
-  background-color: #F5F8FD;
+  background-color: #f5f8fd;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin: 8px 0 ;
+  margin: 8px 0;
 }
 
 .icone-olho img {
   height: 20px;
 }
 
-.area{
+.area {
   margin: 5px 0;
 }
 .icone-input {
   width: 30px;
   height: 39px;
   border-radius: 4px 0 0 4px;
-  border: 1px solid #CED4DA;
-  background-color: #F5F8FD;
+  border: 1px solid #ced4da;
+  background-color: #f5f8fd;
   font-family: 'Montserrat';
   font-size: 15px;
   font-weight: 400;
@@ -168,9 +167,9 @@ label {
 .checkbox-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  font-size: 15px;
   cursor: pointer;
-  font-size: 14px;
   user-select: none;
 }
 
@@ -179,33 +178,43 @@ label {
 }
 
 .checkmark {
-  width: 15px;
-  height: 15px;
-  border: 2px solid #9aa4b2;
-  border-radius: 4px;
-  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   position: relative;
 }
 
-.checkbox-container input:checked + .checkmark {
-  background: #2563eb;
+.checkbox-container:hover .checkmark {
   border-color: #2563eb;
 }
 
-.checkbox-container input:checked + .checkmark::after {
-  content: "";
+.checkbox-container input:checked + .checkmark {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.checkmark::after {
+  content: '';
   position: absolute;
-  left: 4px;
-  top: 0px;
-  width: 5px;
-  height: 10px;
+  left: 6px;
+  top: 1px;
+  width: 6px;
+  height: 11px;
   border: solid white;
   border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
+  transform: rotate(45deg) scale(0);
+  transition: transform 0.2s ease;
+}
+
+/* Mostrar check */
+.checkbox-container input:checked + .checkmark::after {
+  transform: rotate(45deg) scale(1);
 }
 
 .botao-esqueci {
-  color: #0D6EFD;
+  color: #0d6efd;
   background-color: transparent;
   cursor: pointer;
   width: 100%;
