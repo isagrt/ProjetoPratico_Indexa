@@ -31,7 +31,7 @@ export class Login {
 
     const { email, senha, remember } = this.loginForm.value;
 
-    if (email === 'admin@gmail' && senha === 'admin') {
+    if (email === '' && senha === '') {
       this.erroLogin = false;
       this.router.navigate(['/lista']);
     } else {

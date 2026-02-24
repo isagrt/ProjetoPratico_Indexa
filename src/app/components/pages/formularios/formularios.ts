@@ -4,10 +4,12 @@ import { Separador } from '../../separador/separador';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { email } from '@angular/forms/signals';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { ContatoService } from '../../../service/contato-service';
 
 @Component({
   selector: 'app-formularios',
+  standalone: true,
   imports: [
     Container,
     Separador,
@@ -19,15 +21,21 @@ import { RouterLink } from '@angular/router';
   styleUrl: './formularios.css',
 })
 export class Formularios {
-  contatoForm: FormGroup;
+  contatoForm!: FormGroup;
 
-  /* Metodo construtor */
-  constructor(){
-    this.contatoForm = new FormGroup({
+  constructor(private contatoService: ContatoService, private router: Router){
+
+  }
+  ngOnInit(){
+    this.inicializarFormulario();
+  }
+
+  inicializarFormulario(){
+     this.contatoForm = new FormGroup({
       nome: new FormControl('', Validators.required),
       telefone: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      aniversario: new FormControl(''),
+      birth: new FormControl(''),
       redes: new FormControl(''),
       observacoes: new FormControl(''),
     });
@@ -35,11 +43,14 @@ export class Formularios {
 
 
   salvarContato(){
-    console.log(this.contatoForm.value)
+      const novoContato = this.contatoForm.value;
+      this.contatoService.salvarContatos(novoContato);
 
+      this.contatoForm.reset();
+      this.router.navigateByUrl('/lista-contatos');
   }
 
   cancelar(){
-    console.log('Submissão cancelada!');
+    this.contatoForm.reset();
   }
 }
