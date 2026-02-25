@@ -44,10 +44,10 @@ export class Formularios {
 
   salvarContato(){
       const novoContato = this.contatoForm.value;
-      this.contatoService.salvarContatos(novoContato);
-
-      this.contatoForm.reset();
-      this.router.navigateByUrl('/lista-contatos');
+      this.contatoService.salvarContatos(novoContato).subscribe(() =>{
+        this.contatoForm.reset();
+        this.router.navigateByUrl('/lista-contatos');
+      });
   }
 
   cancelar(){

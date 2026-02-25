@@ -20,7 +20,7 @@ export class ContatoService {
   }
 
   salvarContatos(contato: ContatoInterface) {
-
+    return this.http.post<ContatoInterface[]>(this.API, contato);
   }
 
 }
