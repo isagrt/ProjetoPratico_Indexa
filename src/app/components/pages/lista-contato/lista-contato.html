@@ -16,7 +16,11 @@
       {{letra}}
     </app-separador>
     @for(contato of filtrarPorTextoEPorLetra(letra); track contato.id){
-      <app-contato [nome]="contato.nome" [telefone]="contato.telefone" [routerLink]="['/perfil', contato.id]"></app-contato>
+      <app-contato
+      [nome]="contato.nome"
+      [telefone]="contato.telefone"
+      [id]="contato.id">
+    </app-contato>
     }
 
   }

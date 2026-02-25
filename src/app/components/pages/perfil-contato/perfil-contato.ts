@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Container } from '../../container/container';
 import { Separador } from '../../separador/separador';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
@@ -35,19 +35,20 @@ interface IContato {
 })
 
 
-export class PerfilContato {
-
- contato!: IContato;
+export class PerfilContato implements OnInit{
+  contato!: IContato;
   contatoBackup!: IContato;
 
   modoEdicao = false;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.contato = agenda.find(c => c.id === id)!;
+    this.activatedRoute.snapshot.paramMap.get('id');
   }
+
+
+
 
   editarContato() {
     this.contatoBackup = JSON.parse(JSON.stringify(this.contato));

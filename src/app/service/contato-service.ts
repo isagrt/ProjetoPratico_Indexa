@@ -19,7 +19,7 @@ export class ContatoService {
     return this.http.get<ContatoInterface[]>(this.API);
   }
 
-  salvarContatos(contato: ContatoInterface) {
+  salvarContatos(contato: ContatoInterface): Observable<ContatoInterface[]> {
     return this.http.post<ContatoInterface[]>(this.API, contato);
   }
 
