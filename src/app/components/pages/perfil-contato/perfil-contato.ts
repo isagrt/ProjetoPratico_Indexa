@@ -6,19 +6,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import agenda from '../../../agenda.json';
+import { ContatoService } from '../../../service/contato-service';
+import { ContatoInterface } from '../../contato/contato-interface';
 
-interface IContato {
-  id:number
-  nome: string
-  telefone: string
-  email: string,
-  dataNascimento: string,
-  foto: string,
-  redesSociais:{
-    linkedin: string,
-    instagram: string
-  }
-}
+
 
 @Component({
   selector: 'app-perfil-contato',
@@ -28,7 +19,8 @@ interface IContato {
     ReactiveFormsModule,
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+
   ],
   templateUrl: './perfil-contato.html',
   styleUrl: './perfil-contato.css',
@@ -36,20 +28,34 @@ interface IContato {
 
 
 export class PerfilContato implements OnInit{
-  contato!: IContato;
-  contatoBackup!: IContato;
+
+  contato: ContatoInterface = {
+  id:0,
+  nome: '',
+  telefone: '',
+  email: '',
+  dataNascimento: '',
+  redesSociais: '',
+  observacoes: ''
+}
 
   modoEdicao = false;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private contatoService: ContatoService) {}
 
   ngOnInit() {
-    this.activatedRoute.snapshot.paramMap.get('id');
+    const id = this.activatedRoute.snapshot.paramMap.get('id') ;
+    if(id){
+      this.contatoService.buscarPorId(parseInt(id)).subscribe((contato) => {
+        this.contato = contato
+      })
+    }
+
   }
 
 
 
-
+/*
   editarContato() {
     this.contatoBackup = JSON.parse(JSON.stringify(this.contato));
     this.modoEdicao = true;
@@ -67,6 +73,6 @@ export class PerfilContato implements OnInit{
   excluirContato(){
     console.log('Contato excluído',this.contato)
   }
-
+*/
 }
 

@@ -22,10 +22,13 @@
 
   <form class="formulario">
     <div class="card-usuario">
-      <img class="imagem-contato" [src]="contato?.foto || 'https://ui-avatars.com/api/?name=' + contato?.nome" />
+      <img
+        class="imagem-contato"
+        [src]="contato?.foto || 'https://ui-avatars.com/api/?name=' + contato?.nome"
+      />
 
       <div class="info-usuario">
-        <span class="nome-usuario">{{ contato?.nome }}</span>
+        <span class="nome-usuario">{{ contato?.nome }} </span>
       </div>
     </div>
 
@@ -36,7 +39,11 @@
         <span class="material-icons">phone</span>
         <div>
           <strong>Número</strong>
-          <input [(ngModel)]="contato.telefone" name="telefone" [disabled]="!modoEdicao" />
+          <input
+            [(ngModel)]="contato.telefone"
+            name="telefone"
+            [disabled]="true"
+          />
         </div>
       </div>
 
@@ -44,7 +51,11 @@
         <span class="material-icons">email</span>
         <div>
           <strong>Email</strong>
-          <input [(ngModel)]="contato.email" name="email" [disabled]="!modoEdicao" />
+          <input
+            [(ngModel)]="contato.email"
+            name="email"
+            [disabled]="true"
+          />
         </div>
       </div>
 
@@ -55,7 +66,7 @@
           <input
             [(ngModel)]="contato.dataNascimento"
             name="dataNascimento"
-            [disabled]="!modoEdicao"
+            [disabled]="true"
           />
         </div>
       </div>
@@ -65,34 +76,17 @@
         <div>
           <strong>Redes sociais</strong>
           <input
-            [(ngModel)]="contato.redesSociais.linkedin"
+            [(ngModel)]="contato.redesSociais"
             name="linkedin"
-            [disabled]="!modoEdicao"
+            [disabled]="true"
           />
           <input
-            [(ngModel)]="contato.redesSociais.instagram"
+            [(ngModel)]="contato.redesSociais"
             name="instagram"
-            [disabled]="!modoEdicao"
+            [disabled]="true"
           />
         </div>
       </div>
-    </div>
-
-    <div class="botoes-container">
-      <button
-        type="button"
-        class="botao-excluir"
-        (click)="modoEdicao ? cancelarEdicao() : excluirContato()"
-      >
-        {{ modoEdicao ? 'Cancelar' : 'Excluir contato' }}
-      </button>
-      <button
-        type="button"
-        class="botao-editar"
-        (click)="modoEdicao ? salvarContato() : editarContato()"
-      >
-        {{ modoEdicao ? 'Salvar' : 'Editar' }}
-      </button>
     </div>
   </form>
 </app-container>

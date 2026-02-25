@@ -3,7 +3,8 @@ export interface ContatoInterface {
   nome: string
   telefone: string
   email: string
-  birth: string
-  redes: string
+  dataNascimento: string
+  foto?: string;
+  redesSociais: string
   observacoes: string
 }

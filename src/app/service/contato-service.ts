@@ -23,4 +23,8 @@ export class ContatoService {
     return this.http.post<ContatoInterface[]>(this.API, contato);
   }
 
+  buscarPorId(id: number): Observable<ContatoInterface>{
+    const url = `${this.API}/${id}`
+    return this.http.get<ContatoInterface>(url)
+  }
 }
