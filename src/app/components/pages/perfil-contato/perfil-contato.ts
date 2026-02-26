@@ -3,7 +3,7 @@ import { Container } from '../../container/container';
 import { Separador } from '../../separador/separador';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import agenda from '../../../agenda.json';
 import { ContatoService } from '../../../service/contato-service';
@@ -41,7 +41,12 @@ export class PerfilContato implements OnInit{
 
   modoEdicao = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private contatoService: ContatoService, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private contatoService: ContatoService,
+    private cdr: ChangeDetectorRef,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') ;
@@ -53,7 +58,13 @@ export class PerfilContato implements OnInit{
     }
 
   }
-
+  excluir(){
+    if(this.contato.id){
+      this.contatoService.excluirContato(this.contato.id).subscribe(() => {
+        this.router.navigateByUrl('/lista')
+      });
+    }
+  }
 
 
 /*
@@ -71,9 +82,7 @@ export class PerfilContato implements OnInit{
     this.contato = JSON.parse(JSON.stringify(this.contatoBackup));
     this.modoEdicao = false;
   }
-  excluirContato(){
-    console.log('Contato excluído',this.contato)
-  }
+
 */
 }
 
