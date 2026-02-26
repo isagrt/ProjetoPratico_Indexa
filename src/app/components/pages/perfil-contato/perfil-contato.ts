@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Container } from '../../container/container';
 import { Separador } from '../../separador/separador';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
@@ -41,13 +41,14 @@ export class PerfilContato implements OnInit{
 
   modoEdicao = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private contatoService: ContatoService) {}
+  constructor(private activatedRoute: ActivatedRoute, private contatoService: ContatoService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id') ;
     if(id){
       this.contatoService.buscarPorId(parseInt(id)).subscribe((contato) => {
         this.contato = contato
+        this.cdr.detectChanges();
       })
     }
 
