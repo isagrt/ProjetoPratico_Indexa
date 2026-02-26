@@ -18,7 +18,7 @@ import { ContatoService } from '../../../service/contato-service';
     RouterLink
   ],
   templateUrl: './formularios.html',
-  styleUrl: './formularios.css',
+  styleUrls: ['./formularios.css'],
 })
 export class Formularios {
   contatoForm!: FormGroup;
@@ -38,7 +38,7 @@ export class Formularios {
       nome: new FormControl('', Validators.required),
       telefone: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      birth: new FormControl(''),
+      aniversario: new FormControl(''),
       redes: new FormControl(''),
       observacoes: new FormControl(''),
     });
